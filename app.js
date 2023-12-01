@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const dotenv = require("dotenv");
 const connectDB = require('./config/db');
 const userRoutes=require('./routes/userRoutes');
 const postRoutes=require('./routes/postRoutes');
@@ -9,6 +8,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+require('dotenv').config();
 connectDB();
 app.use('/api/user',userRoutes);
 app.use('/api',postRoutes);
